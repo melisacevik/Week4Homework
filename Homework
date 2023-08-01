@@ -92,3 +92,23 @@ VALUES
 ('Cenk','Tosun',3,1,55,null);
 
 --------------------------------------------------------
+
+3)   
+SELECT name_leauge FROM Leauge
+INNER JOIN Country ON Leauge.id_country = Country.id_country
+WHERE name_country = ‘TURKEY';
+
+4) 
+SELECT name_leauge FROM Leauge
+INNER JOIN Country ON Leauge.id_country = Country.id_country
+WHERE name_country = ‘TURKEY';
+
+5) 
+SELECT name_leauge FROM Leauge
+INNER JOIN Country ON Leauge.id_country = Country.id_country
+WHERE name_country = 'TURKEY';  6)
+
+6)
+SELECT AVG(point_team) FROM Team
+Where id_leauge = 1;
+
