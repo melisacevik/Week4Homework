@@ -1,1 +1,38 @@
 
+1)
+
+CREATE TABLE Country (
+	id_country SERIAL PRIMARY KEY,
+	name_country VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Leauge(
+	id_leauge SERIAL PRIMARY KEY,
+	name_leauge VARCHAR(100) NOT NULL,
+	id_country INTEGER,
+	FOREIGN KEY(id_country) REFERENCES Country(id_country)
+);
+
+CREATE TABLE Team(
+	id_team SERIAL PRIMARY KEY,
+	name_team VARCHAR(100) NOT NULL,
+	id_leauge INTEGER,
+	FOREIGN KEY(id_leauge) REFERENCES Leauge(id_leauge),
+	establishment_year INTEGER NOT NULL,
+	goals_scored INTEGER NOT NULL,
+	goals_conceded INTEGER NOT NULL,
+	point_team INTEGER NOT NULL,
+	level_team INTEGER NOT NULL
+);
+
+CREATE TABLE Player(
+	id_player SERIAL PRIMARY KEY,
+	firstName_player VARCHAR(100) NOT NULL, 
+	lastName_player VARCHAR(100) NOT NULL,
+	id_team INTEGER,
+	FOREIGN KEY(id_team) REFERENCES Team(id_team),
+	id_country INTEGER,
+	FOREIGN KEY(id_country) REFERENCES Country(id_country),
+	goals_scored_player INTEGER NOT NULL,
+	goals_conceded_player INTEGER
+);
